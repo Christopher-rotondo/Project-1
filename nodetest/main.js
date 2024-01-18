@@ -10,10 +10,6 @@ const clicked = () => {
   }
 }
 
-ws.onopen = () => {
-  console.log('Connected to WebSocket server');
-};
-
 ws.addEventListener('message', event => {
   turn = true;
   document.querySelector('button').innerHTML = "Click Hot Potato!";

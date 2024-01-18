@@ -7,15 +7,13 @@ wss.on('connection', ws => {
     console.log('Client connected');
     if (wss.clients.size === 1) { 
         console.log("Player 1 connected");
-        ws.send('Welcome, Player 1!');
+        ws.send();
     }
-    
     ws.on('message', message => {
-        wss.clients.forEach(client => {
-            if (client !== ws) {
-                client.send('Received message: ' + message);
-            }
-        });
+        const notPotatoes = new Set(wss.clients);
+        notPotatoes.delete(ws);
+        const randWS = Array.from(notPotatoes)[Math.floor(Math.random() * notPotatoes.size)];
+        randWS.send()
     });
 });
 
