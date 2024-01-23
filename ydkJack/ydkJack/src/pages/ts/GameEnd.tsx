@@ -1,4 +1,5 @@
 import "../css/GameEnd.css"
+import supabase from "../../supabase.js"
 
 function GameEnd(props) {
     return (

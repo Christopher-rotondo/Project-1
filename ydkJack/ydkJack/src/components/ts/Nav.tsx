@@ -6,42 +6,44 @@ import GameQuestion from "../../pages/ts/GameQuestion"
 import GameStart from "../../pages/ts/GameStart"
 import GetName from "../../pages/ts/GetName"
 import HostMenu from "../../pages/ts/HostMenu"
-import JoinedMenu from "../../pages/ts/JoinedMenu"
-import JoiningMenu from "../../pages/ts/JoiningMenu"
+import JoinedMenu from "../../pages/ts/WaitMenu"
+import JoiningMenu from "../../pages/ts/GuestJoin"
 import MainMenu from "../../pages/ts/MainMenu"
 
 function Nav() {
     const [curPage, setCurPage] = useState("MainMenu")
     const [isHost, setHost] = useState(undefined)
+    const [name, setName] = useState(undefined)
+    const [code, setCode] = useState(undefined)
 
     return (
         <div>
             <div>
-                {curPage === "GameAnswer" ? < GameAnswer setCurPage={setCurPage}/> : null}
+                {curPage === "GameAnswer" ? < GameAnswer setCurPage={setCurPage} name={name}/> code={code}: null}
             </div>
             <div>
-                {curPage === "GameEnd" ? < GameEnd setCurPage={setCurPage}/> : null}
+                {curPage === "GameEnd" ? < GameEnd setCurPage={setCurPage} name={name}/> code={code}: null}
             </div>
             <div>
-                {curPage === "GameQuestion" ? < GameQuestion setCurPage={setCurPage}/> : null}
+                {curPage === "GameQuestion" ? < GameQuestion setCurPage={setCurPage} name={name}/> code={code}: null}
             </div>
             <div>
-                {curPage === "GameStart" ? < GameStart setCurPage={setCurPage}/> : null}
+                {curPage === "GameStart" ? < GameStart setCurPage={setCurPage} name={name}/> code={code}: null}
             </div>
             <div>
-                {curPage === "GetName" ? < GetName setCurPage={setCurPage} isHost={isHost}/> : null}
+                {curPage === "GetName" ? < GetName setCurPage={setCurPage} isHost={isHost} setName={setName} setCode={setCode}/> : null}
             </div>
             <div>
-                {curPage === "HostMenu" ? < HostMenu setCurPage={setCurPage}/> : null}
+                {curPage === "HostMenu" ? < HostMenu setCurPage={setCurPage} name={name}/> code={code}: null}
             </div>
             <div>
-                {curPage === "JoinedMenu" ? < JoinedMenu setCurPage={setCurPage}/> : null}
+                {curPage === "JoinedMenu" ? < JoinedMenu setCurPage={setCurPage} name={name}/> code={code}: null}
             </div>
             <div>
-                {curPage === "JoiningMenu" ? < JoiningMenu setCurPage={setCurPage}/> : null}
+                {curPage === "JoiningMenu" ? < JoiningMenu setCurPage={setCurPage} name={name} setCode={setCode}/> : null}
             </div>
             <div>
-                {curPage === "MainMenu" ? < MainMenu setCurPage={setCurPage}/> : null}
+                {curPage === "MainMenu" ? < MainMenu setCurPage={setCurPage} setHost={setHost}/> : null}
             </div>
         </div>
     )

@@ -1,4 +1,5 @@
 import "../css/GameAnswer.css"
+import supabase from "../../supabase.js"
 
 function GameAnswer(props) {
     return (
